@@ -34,7 +34,7 @@ class Playback:
 				k += 1
 				print(prompt[i], flush=True, end='')
 				time.sleep(spacing*random.random())	
-				if (k/80 == 1):
+				if (k/lineLen == 1):
 					k = 0
 					print()
 		else:

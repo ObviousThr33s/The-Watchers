@@ -47,6 +47,13 @@ time.sleep(.65)
 ###
 
 s = ld.getFile("C:\\The Watchers\\base64.txt")
+
+lines = 100
+m = lineLength*lines
+
+a = 0+random.randint(0,(len(s)-400))
+b = m+a
+s = s[a:b]
 l = len(s)
 
 for k in range(lineLength-1):
@@ -74,8 +81,8 @@ line += '>\n'
 print(line)
 
 print("::RAW>>:")
-pb.timedPrintL(.002, s, 80)
-print(line+'\n')
+pb.timedPrintL(.002, s, lineLength)
+print('\n'+line+'\n')
 
 while True:
 	print(path, end="")
