@@ -4,13 +4,13 @@ import time
 import coms.comm as cin
 import playback
 import coms.commandController
-import load_prompt
-import setting
+import utils.load_prompt as load_prompt
+import utils.setting as setting
 
 pb = playback.Playback
 cm = coms.commandController.Commands
 
-ld = load_prompt.PromptLoader
+lp = load_prompt.PromptLoader
 
 debug = setting.debug
 lineLength = setting.lineLength
@@ -46,16 +46,7 @@ class Encounter:
 	### Event functions
 
 	def event0(path:str):
-		p0 = open(path+"\\questions\\0.txt")
-		length = len(p0.readlines())
-		p0.close()
-		p0 = open(path+"\\questions\\0.txt")
-
-		st = ""
-
-		for i in range(random.randint(0, length)):
-			st = p0.readline()
-		p0.close()
+		st = lp.getRandomLine(path+"\\bin\\questions\\0.txt", True)
 
 		pb.timedPrint(.15, st)
 		time.sleep(2)
@@ -63,10 +54,11 @@ class Encounter:
 		pass
 
 	def intro(path):
-		playback.Playback.timedPrint(.01, "Hello... you")
-		prompt = ld.getFile("prompt.txt")
+		playback.Playback.timedPrint(.01, lp.getSpecificLine(path+"\\bin\\greet.txt",4))
+		prompt = lp.getFile(path+"\\bin\\prompt.txt")
 		playback.Playback.timedPrint(0.01, prompt)
 		time.sleep(.65)
+		input()
 		os.system("cls")
 
 	def topText(path):
@@ -74,7 +66,7 @@ class Encounter:
 		print("Obelisk v"+version)
 
 	def rawDump(path):
-		s = ld.getFile(path+"\\base64.txt")
+		s = lp.getFile(path+"\\bin\\base64.txt")
 
 		lines = 100
 		m = lineLength*lines
@@ -119,7 +111,7 @@ class Encounter:
 		code = ["1000","2000","2001","3000"]
 		c = code[random.randint(0,len(code)-1)]
 
-		p0 = open(path+"\\logs\\log"+c+".txt")
+		p0 = open(path+"\\bin\\logs\\log"+c+".txt")
 		st = p0.readlines()
 		pb.timedPrint(.15, st)
 		input()
@@ -129,15 +121,7 @@ class Encounter:
 
 	def event2(path:str):
 		os.system("cls")
-		p0 = open(path+"\\responses\\0.txt")
-		length = len(p0.readlines())
-		p0.close()
-		p0 = open(path+"\\responses\\0.txt")
-		st = ""
-
-		for i in range(random.randint(0, length)):
-			st = p0.readline()
-		p0.close()
+		st = lp.getRandomLine(path+"\\bin\\responses\\0.txt",True)
 
 		pb.timedPrint(.15, st)
 		time.sleep(2)

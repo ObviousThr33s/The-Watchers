@@ -2,7 +2,7 @@ import time
 import os
 import random
 
-import setting
+import utils.setting as setting
 
 st = setting
 

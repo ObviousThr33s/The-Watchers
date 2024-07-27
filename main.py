@@ -1,6 +1,6 @@
 import playback
-import load_prompt
-import input as i
+import utils.load_prompt as load_prompt
+import coms.input as i
 import coms.commandController
 import loop
 import encounter
