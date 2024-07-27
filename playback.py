@@ -2,7 +2,11 @@ import time
 import os
 import random
 
-debug = False
+import setting
+
+st = setting
+
+debug = st.debug
 
 class Playback:
 	def timedPrint(spacing, prompt):
