@@ -11,7 +11,7 @@ debug = st.debug
 class Playback:
 	def timedPrint(spacing, prompt):
 		if not debug:
-			d0 = time.thread_time()
+			#d0 = time.thread_time()
 			for i in range(len(prompt)):
 				print(prompt[i], flush=True, end='')
 				time.sleep(spacing*random.random())	
@@ -20,13 +20,12 @@ class Playback:
 
 	def timedPrintL(spacing, prompt:str, lineLen=0):
 		if lineLen == 0:
-			print("ERROR:",prompt)
+			print("ERROR: INVALID LINE LEN 0")
+			print("PROMPT:"+prompt)
 			return
 		
 		if not debug:
-			d0 = time.thread_time()
 			k = 0
-			g = 0
 			prompt = prompt.replace(' ', '')
 			prompt = prompt.replace('\n', ' ')
 			l = len(prompt)
