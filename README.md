@@ -39,4 +39,4 @@ To run, use py.exe in the powershell or command line on windows to run main.py.
 #	*refactor so it isn't as spaghetti
 ###
 # After that:
-#	*encounters, scenes, gamestates
+#	*encounters, scenes, gamestates, email mechanic/filestructure

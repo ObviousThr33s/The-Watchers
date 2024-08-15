@@ -108,7 +108,7 @@ class Encounter:
 	def event1(path:str):
 		os.system("cls")
 
-		code = ["1000","2000","2001","3000"]
+		code = ["1000","1001","1002","1070","1087","3000","4000"]
 		c = code[random.randint(0,len(code)-1)]
 
 		p0 = open(path+"\\bin\\logs\\log"+c+".txt")

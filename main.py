@@ -7,8 +7,6 @@ import encounter
 
 import os
 
-ld = load_prompt.PromptLoader
-pb = playback.Playback
 gt = i.Input
 cm = coms.commandController.Commands
 lp = loop.Loop
